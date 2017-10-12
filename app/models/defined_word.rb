@@ -1,0 +1,2 @@
+class DefinedWord < ApplicationRecord
+end
