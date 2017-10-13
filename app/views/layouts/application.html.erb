@@ -9,6 +9,25 @@
   </head>
 
   <body>
+    <header>
+      <div class="logo">
+        Spanglish Dictionary
+      </div>
+      <nav>
+        <% if user_signed_in? %>
+          <div class="nav-link">
+            <%= link_to "Sign out", destroy_user_session_path %>
+          </div>
+        <% else %>
+          <div class="nav-link">
+            <%= link_to "Log in", new_user_session_path %>
+          </div>
+          <div class="nav-link">
+            <%= link_to "Register", new_user_registration_path %>
+          </div>
+        <% end %>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>
