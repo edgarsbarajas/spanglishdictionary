@@ -1,0 +1,32 @@
+<h1>Add a new word</h1>
+
+<%= form_for @word do |f| %>
+  <div class="field">
+    <%= f.label :word %><br />
+    <%= f.text_field :word, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :definition %><br />
+    <%= f.text_field :definition %>
+  </div>
+
+  <div class="field">
+    <%= f.label :origin %><br />
+    <%= f.collection_select :origin_id, Origin.all, :id, :country %>
+  </div>
+
+  <%= f.hidden_field :user_id, value: current_user.id %>
+
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>
+
+<ul>
+    <% if @errors %>
+      <% @errors.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    <% end %>
+</ul>

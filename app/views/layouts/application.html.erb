@@ -13,6 +13,9 @@
       <div class="logo">
         Spanglish Dictionary
       </div>
+      <div class="nav-link" id="add-word">
+        <%= link_to "Add a new word", new_defined_word_path %>
+      </div>
       <nav>
         <% if user_signed_in? %>
           <div class="nav-link">
