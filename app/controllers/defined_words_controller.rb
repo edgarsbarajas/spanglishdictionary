@@ -1,4 +1,6 @@
 class DefinedWordsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @word = DefinedWord.new
   end
