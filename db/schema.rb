@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171012204116) do
+ActiveRecord::Schema.define(version: 20171016025937) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20171012204116) do
     t.integer "origin_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "example"
     t.index ["origin_id"], name: "index_defined_words_on_origin_id"
     t.index ["user_id"], name: "index_defined_words_on_user_id"
   end
