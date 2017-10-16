@@ -13,3 +13,72 @@
  *= require_tree .
  *= require_self
  */
+
+html {
+  background-color: #FFF9EA;
+  /*font-family: 'Roboto', sans-serif;*/
+}
+
+.logo h1 {
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+
+/**********************************
+
+              FORMS
+
+**********************************/
+
+.form-entirety {
+  text-align: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #E9B6F1;
+}
+
+.field {
+  margin: 10px;
+}
+
+input {
+    width: 90%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid purple
+}
+
+/**********************************
+
+              NAV
+
+**********************************/
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
