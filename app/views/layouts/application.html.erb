@@ -21,6 +21,11 @@
               <%= link_to "Add a new word", new_defined_word_path %>
             </li>
           </div>
+          <div class="nav-link">
+            <li>
+              <%= link_to "Home", root_path %>
+            </li>
+          </div>
           <% if user_signed_in? %>
             <div class="nav-link">
               <li>
