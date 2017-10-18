@@ -1,6 +1,11 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @word = DefinedWord.find(params["defined_word_id"])
+    @comments = @word.comments
+  end
+
   def new
     @word = DefinedWord.find(params["defined_word_id"])
     @comment = Comment.new

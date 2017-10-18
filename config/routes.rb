@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :defined_words, only: [:new, :create] do
     resources :votes, only: [:create]
-    resources :comments, only: [:new, :create]
+    resources :comments, only: [:index, :new, :create]
   end
 
   resources :users, only: [] do
