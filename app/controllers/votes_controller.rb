@@ -14,8 +14,6 @@ class VotesController < ApplicationController
           end
         end
       elsif params["commit"] == "Downvote"
-
-
         # if downvote doesnt exist
         if !Vote.where(user: current_user, voteable_type: "DefinedWord", voteable_id: params["defined_word_id"], upvote: false).exists?
           # create it
@@ -25,11 +23,6 @@ class VotesController < ApplicationController
             upvote.delete
           end
         end
-
-
-
-
-
       end
     elsif params["comment_id"]
 
