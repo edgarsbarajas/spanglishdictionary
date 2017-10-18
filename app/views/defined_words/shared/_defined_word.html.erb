@@ -17,4 +17,7 @@
   <div class="downvote-count">
      <%= word.votes.where(upvote: false).pluck(:value).reduce(:+) %>
   </div>
+  <div class="reply">
+    <%= link_to "REPLY", new_defined_word_comment_path(word) %>
+  </div>
 <div>
