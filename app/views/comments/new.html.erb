@@ -1,2 +1,7 @@
-<h1>Comments#new</h1>
-<p>Find me in app/views/comments/new.html.erb</p>
+<% if @word %>
+  <h2>Reply to <%= @word.user.username %></h2>
+  <%= form_for @comment, url: defined_word_comments_path(@word) do |f| %>
+    <%= f.text_field :text %>
+    <%= f.submit value: "Reply" %>
+  <% end %>
+<% end %>
