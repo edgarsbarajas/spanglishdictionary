@@ -1,5 +1,5 @@
 class DefinedWordsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:new, :create]
 
   def index
     if @user = User.find(params[:user_id])
