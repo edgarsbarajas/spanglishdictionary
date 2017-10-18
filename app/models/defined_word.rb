@@ -5,4 +5,6 @@ class DefinedWord < ApplicationRecord
   has_many :comments, as: :commentable
 
   validates :user, :origin, :word, :definition, presence: true
+
+  accepts_nested_attributes_for :votes
 end

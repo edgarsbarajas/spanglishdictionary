@@ -4,5 +4,17 @@
   </h2>
   <p><%= word.definition %></p>
   <p class="example"><%= word.example %></p>
-  <span>by <%= word.user.username %></span>
+  <span>by <%= word.user.username %></span><br>
+  <%= form_for :votes, url: defined_word_votes_path(word.id), method: "post" do |f|%>
+    <%= f.submit  value: "Upvote" %>
+  <% end %>
+  <div class="upvote-count">
+    <%= word.votes.where(upvote: true).pluck(:value).reduce(:+) %>
+  </div>
+  <%= form_for :votes, url: defined_word_votes_path(word.id), method: "post" do |f|%>
+    <%= f.submit  value: "Downvote" %>
+  <% end %>
+  <div class="downvote-count">
+     <%= word.votes.where(upvote: false).pluck(:value).reduce(:+) %>
+  </div>
 <div>
