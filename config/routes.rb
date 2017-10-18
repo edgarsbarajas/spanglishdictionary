@@ -13,5 +13,9 @@ Rails.application.routes.draw do
     resources :defined_words, only: [:index]
   end
 
+  resources :comments, only: [] do
+    resources :comments, only: [:new, :create]
+  end
+
   root 'index#index'
 end

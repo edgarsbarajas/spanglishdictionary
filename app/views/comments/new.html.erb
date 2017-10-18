@@ -4,6 +4,15 @@
     <%= f.text_field :text %>
     <%= f.submit value: "Reply" %>
   <% end %>
+
+<% elsif @main_comment %>
+
+  <h2>Reply to <%= @main_comment.user.username %></h2>
+  <%= form_for @comment, url: comment_comments_path(@main_comment) do |f| %>
+    <%= f.text_field :text %>
+    <%= f.submit value: "Reply" %>
+  <% end %>
+
 <% end %>
 
 <div class="errors">

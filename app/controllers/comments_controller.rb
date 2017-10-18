@@ -7,8 +7,13 @@ class CommentsController < ApplicationController
   end
 
   def new
-    @word = DefinedWord.find(params["defined_word_id"])
-    @comment = Comment.new
+    if params["defined_word_id"]
+      @word = DefinedWord.find(params["defined_word_id"])
+      @comment = Comment.new
+    elsif params["comment_id"]
+      @main_comment = Comment.find(params["comment_id"])
+      @comment = Comment.new
+    end
   end
 
   def create

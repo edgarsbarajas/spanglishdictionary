@@ -2,10 +2,16 @@
   <% if comments %>
     <ul>
     <% comments.each do |comment| %>
-      <li><%= comment.text %></li>
-        <% if replies = comment.comments %>
+      <li class="comment">
+        <%= comment.text %>
+        <div class="comment-details">
+          <span>by <%= link_to comment.user.username, user_defined_words_path(comment.user) %></span>
+        </div>
+        <%= link_to "Reply", new_comment_comment_path(comment) %>
+      </li>
+        <% if comment.comments.count > 0 %>
           <ul>
-            <% replies.each do |reply| %>
+            <% comment.comments.each do |reply| %>
               <li><%= reply.text %></li>
             <% end %>
           </ul>
