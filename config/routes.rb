@@ -10,5 +10,9 @@ Rails.application.routes.draw do
     resources :votes, only: [:create]
   end
 
+  resources :users, only: [] do
+    resources :defined_words, only: [:index]
+  end
+
   root 'index#index'
 end

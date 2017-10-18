@@ -1,6 +1,12 @@
 class DefinedWordsController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    if @user = User.find(params[:user_id])
+      @words = DefinedWord.where(user: @user)
+    end
+  end
+
   def new
     @word = DefinedWord.new
   end

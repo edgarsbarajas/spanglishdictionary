@@ -1,0 +1,19 @@
+<% if @user %>
+  <h3><%= @user.defined_words.count %>
+  <% if @user.defined_words.count > 1 %>
+    definitions
+  <% else %>
+    definition
+  <% end %>
+  by <%= @user.username %></h3>
+<% end %>
+
+<% if @words %>
+  <ul class="index-list">
+    <% @words.each do |word| %>
+      <li>
+        <%= render partial: "defined_words/shared/defined_word", locals: {word: word} %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

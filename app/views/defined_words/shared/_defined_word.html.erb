@@ -4,7 +4,7 @@
   </h2>
   <p><%= word.definition %></p>
   <p class="example"><%= word.example %></p>
-  <span>by <%= word.user.username %></span><br>
+  <span>by <%= link_to word.user.username, user_defined_words_path(word.user) %></span><br>
   <%= form_for :votes, url: defined_word_votes_path(word.id), method: "post" do |f|%>
     <%= f.submit  value: "Upvote" %>
   <% end %>
