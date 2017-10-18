@@ -3,6 +3,13 @@
     <ul>
     <% comments.each do |comment| %>
       <li><%= comment.text %></li>
+        <% if replies = comment.comments %>
+          <ul>
+            <% replies.each do |reply| %>
+              <li><%= reply.text %></li>
+            <% end %>
+          </ul>
+        <% end %>
     <% end %>
     </ul>
   <% end %>
