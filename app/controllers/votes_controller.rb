@@ -2,8 +2,9 @@ class VotesController < ApplicationController
   before_action :authenticate_user!
 
   def create
+    p "7" * 1000
     if params["defined_word_id"]
-      if params["commit"] == "Upvote"
+      if params["commit"] == "upvote"
         # if upvote doesnt exist
         if !Vote.where(user: current_user, voteable_type: "DefinedWord", voteable_id: params["defined_word_id"], upvote: true).exists?
           # create it
@@ -13,7 +14,7 @@ class VotesController < ApplicationController
             downvote.delete
           end
         end
-      elsif params["commit"] == "Downvote"
+      elsif params["commit"] == "downvote"
         # if downvote doesnt exist
         if !Vote.where(user: current_user, voteable_type: "DefinedWord", voteable_id: params["defined_word_id"], upvote: false).exists?
           # create it

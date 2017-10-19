@@ -116,6 +116,7 @@ nav li a:hover {
   border: none;
   background-size: contain;
   background-color: transparent;
+  color: transparent; /* hides the submit value */
 }
 
 .downvote-button {
@@ -125,16 +126,15 @@ nav li a:hover {
   border: none;
   background-size: contain;
   background-color: transparent;
+  color: transparent; /* hides the submit value */
 }
 
 .voting {
   display: flex;
-  /*width: 100%;*/
   padding-top: 10px;
   padding-bottom: 10px;
   flex-flow: row wrap;
   align-items: center;
-  /*justify-content: space-between;*/
 }
 
 /**********************************
