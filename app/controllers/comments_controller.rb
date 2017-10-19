@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
       comment = Comment.new(user: current_user, commentable_type: "DefinedWord", commentable_id: word_id, text: text)
 
       if comment.save
-        redirect_to root_path
+        redirect_to defined_word_comments_path(word_id)
       else
         @comment = Comment.new
         @word = DefinedWord.find(params["defined_word_id"])
