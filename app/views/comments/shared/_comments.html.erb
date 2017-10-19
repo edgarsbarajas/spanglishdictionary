@@ -12,7 +12,12 @@
         <% if comment.comments.count > 0 %>
           <ul>
             <% comment.comments.each do |reply| %>
-              <li><%= reply.text %></li>
+              <li class="comment">
+                <%= reply.text %>
+                <div class="comment-details">
+                  <span>by <%= link_to reply.user.username, user_defined_words_path(reply.user) %></span>
+                </div>
+              </li>
             <% end %>
           </ul>
         <% end %>
