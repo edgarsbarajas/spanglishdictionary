@@ -1,4 +1,4 @@
-<div class="defined-word-show">
+<div class="defined-word-container">
   <h2>
     <%= word.word %>
   </h2>
@@ -8,23 +8,24 @@
     <span>by <%= link_to word.user.username, user_defined_words_path(word.user) %></span>
     <span><%= word.created_at.strftime("%b %d, %Y") %></span>
   </div>
-  <%= form_for :votes, url: defined_word_votes_path(word.id), method: "post" do |f|%>
-    <%= f.submit  value: "Upvote" %>
-  <% end %>
-  <div class="upvote-count">
-    <%= word.votes.where(upvote: true).pluck(:value).reduce(:+) %>
-  </div>
-  <%= form_for :votes, url: defined_word_votes_path(word.id), method: "post" do |f|%>
-    <%= f.submit  value: "Downvote" %>
-  <% end %>
-  <div class="downvote-count">
-     <%= word.votes.where(upvote: false).pluck(:value).reduce(:+) %>
+  <div class="voting">
+    <div class="upvote-count">
+      <%= word.votes.where(upvote: true).pluck(:value).reduce(:+) %>
+    </div>
+    <%= form_for :votes, url: defined_word_votes_path(word.id), method: "post" do |f|%>
+      <%= f.submit class: "upvote-button", value: "" %>
+    <% end %>
+    <%= form_for :votes, url: defined_word_votes_path(word.id), method: "post" do |f|%>
+      <%= f.submit  class: "downvote-button", value: "" %>
+    <% end %>
+    <div class="downvote-count">
+      <%= word.votes.where(upvote: false).pluck(:value).reduce(:+) %>
+    </div>
   </div>
   <div class="reply">
     <span><%= link_to "View all #{word.comments.count} comments", defined_word_comments_path(word) %></span>
     <%= link_to "REPLY", new_defined_word_comment_path(word) %>
   </div>
   <div class="top-comments">
-
   </div>
 <div>

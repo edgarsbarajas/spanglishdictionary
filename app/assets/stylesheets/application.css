@@ -43,14 +43,14 @@ html {
   margin: 10px;
 }
 
-input {
+/*input {
     width: 90%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
     border: none;
     border-bottom: 2px solid purple
-}
+}*/
 
 /**********************************
 
@@ -98,6 +98,44 @@ nav li a:hover {
   font-style: italic;
 }
 
+.defined-word-container {
+  /*background-color: #E5E5E5;*/
+}
+
+
+/**********************************
+
+            WORD VOTING
+
+**********************************/
+
+.upvote-button {
+  height: 50px;
+  width: 50px;
+  background-image: url("upvote.png");
+  border: none;
+  background-size: contain;
+  background-color: transparent;
+}
+
+.downvote-button {
+  height: 50px;
+  width: 50px;
+  background-image: url("downvote.png");
+  border: none;
+  background-size: contain;
+  background-color: transparent;
+}
+
+.voting {
+  display: flex;
+  /*width: 100%;*/
+  padding-top: 10px;
+  padding-bottom: 10px;
+  flex-flow: row wrap;
+  align-items: center;
+  /*justify-content: space-between;*/
+}
 
 /**********************************
 
