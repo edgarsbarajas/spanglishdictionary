@@ -5,4 +5,6 @@ class Comment < ApplicationRecord
   has_many :votes, as: :voteable
 
   validates :user, :commentable, :text, presence: true
+
+
 end

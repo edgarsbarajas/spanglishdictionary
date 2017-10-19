@@ -30,8 +30,20 @@ class CommentsController < ApplicationController
         @errors = comment.errors.full_messages
         render :new
       end
-    else params["comment_id"]
+    elsif comment_id = params["comment_id"]
+      new_comment = Comment.new(user: current_user, commentable_type: "Comment", commentable_id: comment_id, text: text)
+      @main_comment = Comment.find(params["comment_id"])
 
+      if new_comment.save
+
+        word = DefinedWord.all.select { |word| word.has_comment?(@main_comment)}
+
+        redirect_to defined_word_comments_path(word)
+      else
+        @comment = Comment.new
+        @errors = new_comment.errors.full_messages
+        render :new
+      end
     end
   end
 end
