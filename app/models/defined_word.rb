@@ -6,5 +6,7 @@ class DefinedWord < ApplicationRecord
 
   validates :user, :origin, :word, :definition, presence: true
 
-  accepts_nested_attributes_for :votes
+  def has_comment?(comment)
+    self.comments.where(id: comment.id).count > 0
+  end
 end

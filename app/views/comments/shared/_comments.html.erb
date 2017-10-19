@@ -1,0 +1,27 @@
+<div class="comments-thread">
+  <% if comments %>
+    <ul>
+    <% comments.each do |comment| %>
+      <li class="comment">
+        <%= comment.text %>
+        <div class="comment-details">
+          <span>by <%= link_to comment.user.username, user_defined_words_path(comment.user) %></span>
+        </div>
+        <%= link_to "Reply", new_comment_comment_path(comment) %>
+      </li>
+        <% if comment.comments.count > 0 %>
+          <ul>
+            <% comment.comments.each do |reply| %>
+              <li class="comment">
+                <%= reply.text %>
+                <div class="comment-details">
+                  <span>by <%= link_to reply.user.username, user_defined_words_path(reply.user) %></span>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+    <% end %>
+    </ul>
+  <% end %>
+</div>

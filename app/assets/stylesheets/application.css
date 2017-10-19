@@ -99,3 +99,12 @@ nav li a:hover {
 }
 
 
+/**********************************
+
+          COMMENTS THREAD
+
+**********************************/
+
+.comments-thread ul{
+  list-style-type: none;
+}
