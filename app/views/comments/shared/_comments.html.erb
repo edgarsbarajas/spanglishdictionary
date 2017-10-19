@@ -3,20 +3,19 @@
     <ul>
     <% comments.each do |comment| %>
       <li class="comment">
+        <div class="comment-author"><%= link_to comment.user.username, user_defined_words_path(comment.user) %></div>
         <%= comment.text %>
-        <div class="comment-details">
-          <span>by <%= link_to comment.user.username, user_defined_words_path(comment.user) %></span>
-        </div>
+        <div class="comment-options">
         <%= link_to "Reply", new_comment_comment_path(comment) %>
+        </div>
       </li>
         <% if comment.comments.count > 0 %>
           <ul>
             <% comment.comments.each do |reply| %>
               <li class="comment">
-                <%= reply.text %>
-                <div class="comment-details">
-                  <span>by <%= link_to reply.user.username, user_defined_words_path(reply.user) %></span>
+                <div class="comment-author"><%= link_to comment.user.username, user_defined_words_path(comment.user) %>
                 </div>
+                <%= reply.text %>
               </li>
             <% end %>
           </ul>
