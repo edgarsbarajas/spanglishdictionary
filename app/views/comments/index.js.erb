@@ -1,0 +1,10 @@
+console.log("poppppppp")
+
+var view_comments_button = $(".view-comments[href='/defined_words/<%= @word.id %>/comments']");
+
+var comments_container = view_comments_button.closest(".defined-word-container").find(".word-comments");
+
+// comments_container.children());
+
+// if(comm)
+comments_container.append("<%= j render partial: 'comments/shared/comments', locals: {comments: @comments} %>");

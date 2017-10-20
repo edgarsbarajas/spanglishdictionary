@@ -23,10 +23,10 @@
       <%= word.votes.where(upvote: false).pluck(:value).reduce(:+) %>
     </div>
   </div>
-  <div class="reply">
-    <span><%= link_to "View all #{word.comments.count} comments", defined_word_comments_path(word) %></span>
+  <div class="reply-options">
+    <span><%= link_to "View all #{word.comments.count} comments", defined_word_comments_path(word), remote: true, class: "view-comments" %></span>
     <%= link_to "REPLY", new_defined_word_comment_path(word) %>
   </div>
-  <div class="top-comments">
+  <div class="word-comments">
   </div>
 <div>
