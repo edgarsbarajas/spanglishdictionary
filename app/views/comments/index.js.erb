@@ -1,10 +1,23 @@
-console.log("poppppppp")
-
 var view_comments_button = $(".view-comments[href='/defined_words/<%= @word.id %>/comments']");
 
 var comments_container = view_comments_button.closest(".defined-word-container").find(".word-comments");
 
-// comments_container.children());
+// First time the view comments button is pressed
+// Append the comments thread to the comments container
+if(comments_container.children().length < 1){
+  comments_container.append("<%= j render partial: 'comments/shared/comments', locals: {comments: @comments} %>")
+  view_comments_button.html("Hide comments");
+} else if(comments_container.children().length === 1){
+  // Once the comments thread is appended
+  // If comments are hidden when the button is pressed,
+  // change the comment buttons link text to 'view comments'
+  // vice versa
+  if(view_comments_button.text() === "Hide comments"){
+    view_comments_button.html("View all <%= @comments.count %> comments")
+  }else{
+    view_comments_button.html("Hide comments");
 
-// if(comm)
-comments_container.append("<%= j render partial: 'comments/shared/comments', locals: {comments: @comments} %>");
+  }
+  comments_container.toggle();
+}
+
