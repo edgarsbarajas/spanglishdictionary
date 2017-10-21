@@ -1,4 +1,5 @@
-var view_comments_button = $(".view-comments[href='/defined_words/<%= @word.id %>/comments']");
+console.log("hahaha")
+var view_comments_button = $("#view-comments-<%= @word.id %>");
 
 var comments_container = view_comments_button.closest(".defined-word-container").find(".word-comments");
 

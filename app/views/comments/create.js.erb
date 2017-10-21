@@ -1,4 +1,10 @@
 var reply_box = $("#reply-box-<%= @word.id %>");
+
+// hide the new comment form once a comment has been created
 reply_box.toggle();
 
+// clear the new comment form once a comment has been created
 reply_box.find("form")[0].reset();
+
+// $("#view-comments-<%= @word.id %>").html("<%= @word.comments.count %>")
+// ("<%= @word.comments.count %>")
