@@ -25,7 +25,9 @@
   </div>
   <div class="reply-options">
     <span><%= link_to "View all #{word.comments.count} comments", defined_word_comments_path(word), remote: true, class: "view-comments" %></span>
-    <%= link_to "REPLY", new_defined_word_comment_path(word) %>
+    <%= link_to "REPLY", new_defined_word_comment_path(word), remote: true %>
+  </div>
+  <div class="reply-box" id="reply-box-<%= word.id %>">
   </div>
   <div class="word-comments">
   </div>

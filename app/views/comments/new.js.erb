@@ -1,0 +1,3 @@
+var reply_box = $("#reply-box-<%= @word.id %>");
+
+reply_box.append("<%= j render 'comments/new.html.erb' %>")

@@ -20,6 +20,11 @@ class CommentsController < ApplicationController
       @main_comment = Comment.find(params["comment_id"])
       @comment = Comment.new
     end
+
+    respond_to do |f|
+      f.html
+      f.js
+    end
   end
 
   def create
