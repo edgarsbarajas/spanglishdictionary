@@ -1,0 +1,5 @@
+var word_upvote_count = $("#upvote-count-<%= @word.id %>")
+var word_downvote_count = $("#downvote-count-<%= @word.id %>")
+
+word_upvote_count.html("<%= @upvotes_count %>")
+word_downvote_count.html("<%= @downvotes_count %>")
