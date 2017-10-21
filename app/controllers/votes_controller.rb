@@ -2,7 +2,6 @@ class VotesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    p "7" * 1000
     if params["defined_word_id"]
       if params["commit"] == "upvote"
         # if upvote doesnt exist

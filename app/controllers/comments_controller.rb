@@ -1,9 +1,15 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
+  respond_to :js, :html, :json
 
   def index
     @word = DefinedWord.find(params["defined_word_id"])
     @comments = @word.comments
+
+    respond_to do |f|
+      f.html { p "poop " * 1000 }
+      f.js
+    end
   end
 
   def new
