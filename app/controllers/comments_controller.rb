@@ -31,10 +31,14 @@ class CommentsController < ApplicationController
     text = params["comment"]["text"]
 
     if word_id = params["defined_word_id"]
+      @word = DefinedWord.find(word_id)
       comment = Comment.new(user: current_user, commentable_type: "DefinedWord", commentable_id: word_id, text: text)
 
       if comment.save
-        redirect_to defined_word_comments_path(word_id)
+        respond_to do |f|
+          f.html { redirect_to defined_word_comments_path(word_id) }
+          f.js
+        end
       else
         @comment = Comment.new
         @word = DefinedWord.find(params["defined_word_id"])

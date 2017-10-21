@@ -1,3 +1,8 @@
 var reply_box = $("#reply-box-<%= @word.id %>");
+// if reply box is empty, add reply text input box
+if(reply_box.children().length === 0){
+  reply_box.append("<%= j render 'comments/new.html.erb' %>");
+} else {
+  reply_box.toggle();
+}
 
-reply_box.append("<%= j render 'comments/new.html.erb' %>")
