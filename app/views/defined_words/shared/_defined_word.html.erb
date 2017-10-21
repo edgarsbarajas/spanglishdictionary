@@ -10,16 +10,16 @@
     <span class="country"><%= word.origin.country %></span>
   </div>
   <div class="voting">
-    <div class="upvote-count">
+    <div class="upvote-count" id="upvote-count-<%= word.id %>">
       <%= word.votes.where(upvote: true).pluck(:value).reduce(:+) %>
     </div>
-    <%= form_for :votes, url: defined_word_votes_path(word.id), method: "post" do |f|%>
+    <%= form_for :votes, url: defined_word_votes_path(word.id), method: "post", remote: true do |f|%>
       <%= f.submit class: "upvote-button", value: "upvote" %>
     <% end %>
-    <%= form_for :votes, url: defined_word_votes_path(word.id), method: "post" do |f|%>
+    <%= form_for :votes, url: defined_word_votes_path(word.id), method: "post", remote: true do |f|%>
       <%= f.submit  class: "downvote-button", value: "downvote", placeholder: "" %>
     <% end %>
-    <div class="downvote-count">
+    <div class="downvote-count" id="downvote-count-<%= word.id %>">
       <%= word.votes.where(upvote: false).pluck(:value).reduce(:+) %>
     </div>
   </div>

@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @comments = @word.comments
 
     respond_to do |f|
-      f.html { p "poop " * 1000 }
+      f.html {}
       f.js
     end
   end

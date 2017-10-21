@@ -2,14 +2,15 @@ class VotesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    if params["defined_word_id"]
+    if word_id = params["defined_word_id"]
+      @word = DefinedWord.find(word_id)
       if params["commit"] == "upvote"
         # if upvote doesnt exist
-        if !Vote.where(user: current_user, voteable_type: "DefinedWord", voteable_id: params["defined_word_id"], upvote: true).exists?
+        if !Vote.where(user: current_user, voteable_type: "DefinedWord", voteable_id: word_id, upvote: true).exists?
           # create it
-          Vote.create(user: current_user, voteable_id: params["defined_word_id"], voteable_type: "DefinedWord", value: 1, upvote: true)
+          Vote.create(user: current_user, voteable_id: word_id, voteable_type: "DefinedWord", value: 1, upvote: true)
           # delete the downvote on the word from that user if it exists
-          if downvote = Vote.find_by(user: current_user, voteable_id: params["defined_word_id"], voteable_type: "DefinedWord", upvote: false)
+          if downvote = Vote.find_by(user: current_user, voteable_id: word_id, voteable_type: "DefinedWord", upvote: false)
             downvote.delete
           end
         end
@@ -24,11 +25,16 @@ class VotesController < ApplicationController
           end
         end
       end
+      @downvotes_count = @word.votes.where(upvote: false).pluck(:value).reduce(:+)
+      @upvotes_count = @word.votes.where(upvote: true).pluck(:value).reduce(:+)
     elsif params["comment_id"]
 
     end
 
-    redirect_back(fallback_location: root_path)
+    respond_to do |f|
+      f.html { redirect_back(fallback_location: root_path) }
+      f.js {}
+    end
   end
 end
 
