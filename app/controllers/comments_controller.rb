@@ -28,13 +28,13 @@ class CommentsController < ApplicationController
   end
 
   def create
-    text = params["comment"]["text"]
+    @text = params["comment"]["text"]
 
     if word_id = params["defined_word_id"]
       @word = DefinedWord.find(word_id)
-      comment = Comment.new(user: current_user, commentable_type: "DefinedWord", commentable_id: word_id, text: text)
+      @comment = Comment.new(user: current_user, commentable_type: "DefinedWord", commentable_id: word_id, text: @text)
 
-      if comment.save
+      if @comment.save
         respond_to do |f|
           f.html { redirect_to defined_word_comments_path(word_id) }
           f.js
@@ -46,7 +46,7 @@ class CommentsController < ApplicationController
         render :new
       end
     elsif comment_id = params["comment_id"]
-      new_comment = Comment.new(user: current_user, commentable_type: "Comment", commentable_id: comment_id, text: text)
+      new_comment = Comment.new(user: current_user, commentable_type: "Comment", commentable_id: comment_id, text: @text)
       @main_comment = Comment.find(params["comment_id"])
 
       if new_comment.save

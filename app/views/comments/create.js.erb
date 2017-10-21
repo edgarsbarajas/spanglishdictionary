@@ -6,5 +6,20 @@ reply_box.toggle();
 // clear the new comment form once a comment has been created
 reply_box.find("form")[0].reset();
 
-// $("#view-comments-<%= @word.id %>").html("<%= @word.comments.count %>")
-// ("<%= @word.comments.count %>")
+var view_comments_button = $("#view-comments-<%= @word.id %>");
+
+// when a comment is a submitted on a word
+// if the anchor says views all comments,
+// change the comment count
+if (view_comments_button.text().includes("View")) {
+  view_comments_button.html("View all <%= @word.comments.count %> comments")
+} else {
+  // if the anchor states 'hide comments', meaning the comment thread is showing
+  // append the new comment to the thread
+  var comments_list = $("#comments-thread-<%= @word.id %>");
+console.log(comments_list)
+
+  comments_list.append("<li><%= j render 'comments/shared/single_comment' %></li>")
+
+  // comments_list.append("<%= @comment.user.username %>")
+}
