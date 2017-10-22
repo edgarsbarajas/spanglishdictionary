@@ -1,0 +1,10 @@
+<% if @main_comment %>
+  <%= form_for @comment, url: comment_comments_path(@main_comment), remote: true do |f| %>
+    <%= f.text_field :text, placeholder: "Reply to #{@main_comment.user.username}" %>
+    <%= f.submit value: "Reply" %>
+  <% end %>
+<% end %>
+
+<div class="errors">
+  <%= render partial: "/shared/errors" %>
+</div>

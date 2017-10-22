@@ -1,0 +1,8 @@
+var reply_container = $("#comment-<%= @main_comment.id %>-reply-container");
+
+// hide the new comment form once it is submitted
+reply_container.hide();
+
+var comments_list = $("#comment-<%= @main_comment.id %>-replies");
+
+comments_list.append("<%= j render '/comments/shared/single_comment_comment' %>");

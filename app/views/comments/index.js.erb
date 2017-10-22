@@ -1,6 +1,6 @@
-var view_comments_button = $(".view-comments[href='/defined_words/<%= @word.id %>/comments']");
+var view_comments_button = $("#view-comments-<%= @word.id %>");
 
-var comments_container = view_comments_button.closest(".defined-word-container").find(".word-comments");
+var comments_container = view_comments_button.closest(".defined-word-container").find(".comments-thread");
 
 // First time the view comments button is pressed
 // Append the comments thread to the comments container
@@ -16,7 +16,6 @@ if(comments_container.children().length < 1){
     view_comments_button.html("View all <%= @comments.count %> comments")
   }else{
     view_comments_button.html("Hide comments");
-
   }
   comments_container.toggle();
 }

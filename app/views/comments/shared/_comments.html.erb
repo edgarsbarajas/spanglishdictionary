@@ -1,26 +1,27 @@
-<div class="comments-thread">
-  <% if comments %>
-    <ul>
-    <% comments.each do |comment| %>
-      <li class="comment">
-        <div class="comment-author"><%= link_to comment.user.username, user_defined_words_path(comment.user) %></div>
-        <%= comment.text %>
-        <div class="comment-options">
-        <%= link_to "Reply", new_comment_comment_path(comment) %>
-        </div>
-      </li>
-        <% if comment.comments.count > 0 %>
-          <ul>
-            <% comment.comments.each do |reply| %>
-              <li class="comment">
-                <div class="comment-author"><%= link_to comment.user.username, user_defined_words_path(comment.user) %>
-                </div>
-                <%= reply.text %>
-              </li>
-            <% end %>
-          </ul>
+<% if comments %>
+  <ul id ="comments-thread-<%= @word.id %>">
+  <% comments.each do |comment| %>
+    <li class="comment" id="comment-<%= comment.id %>">
+      <div class="comment-author"><%= link_to comment.user.username, user_defined_words_path(comment.user) %></div>
+      <%= comment.text %>
+      <div class="comment-options">
+      <%= link_to "Reply", new_comment_comment_path(comment), remote: true %>
+      </div>
+    </li>
+    <div id="comment-<%= comment.id %>-reply-container">
+
+    </div>
+    <% if comment.comments.count > 0 %>
+      <ul id="comment-<%= comment.id %>-replies">
+        <% comment.comments.each do |reply| %>
+          <li class="comment">
+            <div class="comment-author"><%= link_to comment.user.username, user_defined_words_path(comment.user) %>
+              </div>
+            <%= reply.text %>
+          </li>
         <% end %>
+      </ul>
     <% end %>
-    </ul>
   <% end %>
-</div>
+  </ul>
+<% end %>

@@ -1,0 +1,8 @@
+var reply_container = $("#reply-box-<%= @word.id %>");
+
+// if reply container is empty, add reply text input box
+if(reply_container.children().length === 0){
+  reply_container.append("<%= j render 'comments/shared/new_word_comment_form' %>");
+}else {
+  reply_container.toggle();
+}
