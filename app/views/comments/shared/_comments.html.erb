@@ -8,6 +8,9 @@
       <%= link_to "Reply", new_comment_comment_path(comment), remote: true %>
       </div>
     </li>
+    <div id="comment-<%= comment.id %>-reply-container">
+
+    </div>
     <% if comment.comments.count > 0 %>
       <ul id="comment-<%= comment.id %>-replies">
         <% comment.comments.each do |reply| %>

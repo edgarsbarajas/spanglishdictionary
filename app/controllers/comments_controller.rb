@@ -59,7 +59,7 @@ class CommentsController < ApplicationController
 
         respond_to do |f|
           f.html { redirect_to defined_word_comments_path(word) }
-          f.js
+          f.js { render 'comments/create_comment_comment' }
         end
       else
         @comment = Comment.new

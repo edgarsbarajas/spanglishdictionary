@@ -1,5 +1,9 @@
-// var main_comment_replies_list = $("#comment-<%= @main_comment.id %>-replies")
+var reply_container = $("#comment-<%= @main_comment.id %>-reply-container");
 
-var main_comment = $("#comment-<%= @main_comment.id %>");
-
-main_comment.append("<%= j render 'comments/shared/new_comment_comment_form' %>")
+if(reply_container.children().length === 0) {
+  reply_container.append("<%= j render 'comments/shared/new_comment_comment_form' %>")
+} else if(!reply_container.is(":visible")) {
+  reply_container.show();
+  // clear the new comment form once a comment has been created
+  reply_container.find("form")[0].reset();
+}
