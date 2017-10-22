@@ -5,7 +5,7 @@
       <div class="comment-author"><%= link_to comment.user.username, user_defined_words_path(comment.user) %></div>
       <%= comment.text %>
       <div class="comment-options">
-      <%= link_to "Reply", new_comment_comment_path(comment) %>
+      <%= link_to "Reply", new_comment_comment_path(comment), remote: true %>
       </div>
     </li>
       <% if comment.comments.count > 0 %>

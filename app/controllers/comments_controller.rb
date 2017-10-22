@@ -16,15 +16,20 @@ class CommentsController < ApplicationController
     if params["defined_word_id"]
       @word = DefinedWord.find(params["defined_word_id"])
       @comment = Comment.new
+      respond_to do |f|
+        f.html
+        f.js { render 'comments/new_word_comment' }
+      end
     elsif params["comment_id"]
       @main_comment = Comment.find(params["comment_id"])
       @comment = Comment.new
-    end
-
-    respond_to do |f|
+      respond_to do |f|
       f.html
       f.js
     end
+    end
+
+
   end
 
   def create
@@ -50,10 +55,12 @@ class CommentsController < ApplicationController
       @main_comment = Comment.find(params["comment_id"])
 
       if new_comment.save
-
         word = DefinedWord.all.select { |word| word.has_comment?(@main_comment)}
 
-        redirect_to defined_word_comments_path(word)
+        respond_to do |f|
+          f.html { redirect_to defined_word_comments_path(word) }
+          f.js
+        end
       else
         @comment = Comment.new
         @errors = new_comment.errors.full_messages
