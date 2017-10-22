@@ -1,0 +1,6 @@
+<li class="comment">
+  <div class="comment-author">
+    <%= link_to @comment.user.username, user_defined_words_path(@comment.user) %>
+  </div>
+    <%= @comment.text %>
+</li>

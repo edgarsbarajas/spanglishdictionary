@@ -51,10 +51,10 @@ class CommentsController < ApplicationController
         render :new
       end
     elsif comment_id = params["comment_id"]
-      new_comment = Comment.new(user: current_user, commentable_type: "Comment", commentable_id: comment_id, text: @text)
+      @comment = Comment.new(user: current_user, commentable_type: "Comment", commentable_id: comment_id, text: @text)
       @main_comment = Comment.find(params["comment_id"])
 
-      if new_comment.save
+      if @comment.save
         word = DefinedWord.all.select { |word| word.has_comment?(@main_comment)}
 
         respond_to do |f|

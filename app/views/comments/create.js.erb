@@ -19,7 +19,7 @@ if (view_comments_button.text().includes("View")) {
   var comments_list = $("#comments-thread-<%= @word.id %>");
 console.log(comments_list)
 
-  comments_list.append("<li><%= j render 'comments/shared/single_comment' %></li>")
+  comments_list.append("<li><%= j render 'comments/shared/single_word_comment' %></li>")
 
   // comments_list.append("<%= @comment.user.username %>")
 }
