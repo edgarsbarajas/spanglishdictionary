@@ -20,6 +20,7 @@ html {
 }
 
 .logo h1 {
+  color: #333;
   font-family: 'Julius Sans One', sans-serif;
 }
 
@@ -43,14 +44,13 @@ html {
   margin: 10px;
 }
 
-/*input {
-    width: 90%;
+input, select {
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
     border: none;
     border-bottom: 2px solid purple
-}*/
+}
 
 /**********************************
 
@@ -149,3 +149,16 @@ nav li a:hover {
 .comments-thread ul{
   list-style-type: none;
 }
+
+/**********************************
+
+          RESPONSIVENESS
+
+**********************************/
+
+@media (max-width:800px) {
+  input {
+    width: 90%;
+  }
+}
+
