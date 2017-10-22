@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
       @comment = Comment.new
       respond_to do |f|
       f.html
-      f.js
+      f.js { render 'comments/new_comment_comment' }
     end
     end
 
