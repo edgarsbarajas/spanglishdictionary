@@ -1,7 +1,7 @@
 <main>
   <ul class="index-list">
     <% @words.each do |word| %>
-      <li>
+      <li class="index-list-item">
         <%= render partial: "defined_words/shared/defined_word" , locals: {word: word} %>
       </li>
     <% end %>
