@@ -3,7 +3,7 @@
     <% if @origins %>
       <% @origins.each do |origin| %>
       <li>
-        <%= origin.country %>
+        <%= link_to origin.country, origin_defined_words_path(origin) %>
       </li>
       <% end %>
     <% end %>
