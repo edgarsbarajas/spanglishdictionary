@@ -2,8 +2,15 @@ class DefinedWordsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    if @user = User.find(params[:user_id])
+    if user_id = params[:user_id]
+      @user = User.find(user_id)
       @words = DefinedWord.where(user: @user)
+
+      render :user_index
+    elsif origin_id = params[:origin_id]
+      @origin = Origin.find(origin_id)
+      @words = @origin.defined_words
+      render :origin_index
     end
   end
 

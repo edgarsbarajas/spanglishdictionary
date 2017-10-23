@@ -1,0 +1,11 @@
+<main>
+  <ul>
+    <% if @origins %>
+      <% @origins.each do |origin| %>
+      <li>
+        <%= origin.country %>
+      </li>
+      <% end %>
+    <% end %>
+  </ul>
+</main>
