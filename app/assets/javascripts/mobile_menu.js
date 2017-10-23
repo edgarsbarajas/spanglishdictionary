@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $("button").click(function(){
-    console.log("lololol");
+  $("header").on("click", "button", function(){
+    $("nav").toggle();
   });
 })

@@ -4,7 +4,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spanglishdictionary</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -16,6 +15,9 @@
       <div class="logo">
         <h1>Spanglish Dictionary</h1>
       </div>
+      <button>
+        MENU
+      </button>
       <nav>
         <ul>
           <div class="nav-link" id="add-word">
@@ -53,9 +55,6 @@
           <% end %>
         </ul>
       </nav>
-      <button>
-        i got that fire in my soul
-      </button>
     </header>
     <%= yield %>
   </body>
