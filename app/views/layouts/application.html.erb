@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spanglishdictionary</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -15,11 +15,19 @@
       <div class="logo">
         <h1>Spanglish Dictionary</h1>
       </div>
+      <button>
+        MENU
+      </button>
       <nav>
         <ul>
           <div class="nav-link" id="add-word">
             <li>
               <%= link_to "Add a new word", new_defined_word_path %>
+            </li>
+          </div>
+          <div class="nav-link" id="add-word">
+            <li>
+              <%= link_to "Words by Origin", new_defined_word_path %>
             </li>
           </div>
           <div class="nav-link">
