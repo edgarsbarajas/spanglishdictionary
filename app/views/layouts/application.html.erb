@@ -23,6 +23,11 @@
               <%= link_to "Add a new word", new_defined_word_path %>
             </li>
           </div>
+          <div class="nav-link" id="add-word">
+            <li>
+              <%= link_to "Words by Origin", new_defined_word_path %>
+            </li>
+          </div>
           <div class="nav-link">
             <li>
               <%= link_to "Home", root_path %>
@@ -48,6 +53,9 @@
           <% end %>
         </ul>
       </nav>
+      <button>
+        i got that fire in my soul
+      </button>
     </header>
     <%= yield %>
   </body>
