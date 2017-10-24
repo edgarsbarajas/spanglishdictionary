@@ -1,10 +1,13 @@
 <main>
-  <ul>
+  <ul class="origins-list">
     <% if @origins %>
       <% @origins.each do |origin| %>
-      <li>
-        <%= link_to origin.country, origin_defined_words_path(origin) %>
-      </li>
+        <li class="lol">
+        <%= link_to origin_defined_words_path(origin) do %>
+          <%= image_tag("origin-flags/Mexico", class: "flag") %><br>
+          <span ><%= origin.country %></span>
+        <% end %>
+        </li>
       <% end %>
     <% end %>
   </ul>

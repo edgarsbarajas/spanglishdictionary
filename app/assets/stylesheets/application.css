@@ -105,8 +105,11 @@ nav li a:hover {
 
 **********************************/
 
-.index-list{
+.index-list, .index-list-item, .origins-list{
   list-style-type: none;
+  list-style-position:inside;
+  margin:0;
+  padding: 0;
 }
 
 .example {
@@ -167,6 +170,23 @@ nav li a:hover {
 
 /**********************************
 
+          ORIGIN-FLAGS
+
+**********************************/
+
+.lol {
+  /*background-color: green;*/
+  text-align: center;
+
+}
+
+.flag {
+  /*padding-left: 10%;*/
+  width: 90%;
+}
+
+/**********************************
+
           RESPONSIVENESS
 
 **********************************/
@@ -182,13 +202,6 @@ button {
     /*background-color: green;*/
   }
 
-  .index-list, .index-list-item{
-    list-style-type: none;
-    list-style-position:inside;
-    margin:0;
-    padding:0;
-  }
-
   .defined-word-container {
     font-size: 18px;
   }
@@ -200,10 +213,7 @@ button {
     width: 90%;
   }
 
-  .index-list, .index-list-item{
-    list-style-type: none;
-    list-style-position:inside;
-    margin:0;
+  .index-list, .index-list-item, .origins-list{
     padding:10px;
   }
 
