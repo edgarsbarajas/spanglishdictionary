@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'comments/new'
 
   devise_for :users
@@ -15,6 +16,10 @@ Rails.application.routes.draw do
 
   resources :comments, only: [] do
     resources :comments, only: [:new, :create]
+  end
+
+  resources :origins, only: [:index] do
+    resources :defined_words, only: [:index]
   end
 
   root 'index#index'
