@@ -207,11 +207,6 @@ button {
 
 @media (max-width:700px) {
 
-  main {
-    background-color: green;
-    /*width: 98%;*/
-  }
-
   input {
     width: 90%;
   }
