@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:create]
 
   def index
     @word = DefinedWord.find(params["defined_word_id"])
@@ -12,23 +12,28 @@ class CommentsController < ApplicationController
   end
 
   def new
-    if params["defined_word_id"]
-      @word = DefinedWord.find(params["defined_word_id"])
-      @comment = Comment.new
+    if !user_signed_in?
       respond_to do |f|
-        f.html
-        f.js { render 'comments/new_word_comment' }
+        f.html { redirect_to new_user_session_path }
+        f.js { render 'shared/not_signed_in' }
       end
-    elsif params["comment_id"]
-      @main_comment = Comment.find(params["comment_id"])
-      @comment = Comment.new
-      respond_to do |f|
-      f.html
-      f.js { render 'comments/new_comment_comment' }
+    else
+      if params["defined_word_id"]
+        @word = DefinedWord.find(params["defined_word_id"])
+        @comment = Comment.new
+        respond_to do |f|
+          f.html
+          f.js { render 'comments/new_word_comment' }
+        end
+      elsif params["comment_id"]
+        @main_comment = Comment.find(params["comment_id"])
+        @comment = Comment.new
+        respond_to do |f|
+          f.html
+          f.js { render 'comments/new_comment_comment' }
+        end
+      end
     end
-    end
-
-
   end
 
   def create
