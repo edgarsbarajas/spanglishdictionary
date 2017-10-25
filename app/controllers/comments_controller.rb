@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
-  respond_to :js, :html, :json
 
   def index
     @word = DefinedWord.find(params["defined_word_id"])
