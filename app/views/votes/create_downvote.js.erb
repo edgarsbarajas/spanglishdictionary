@@ -1,0 +1,18 @@
+var word_upvote_count = $("#upvote-count-<%= @word.id %>")
+var word_downvote_count = $("#downvote-count-<%= @word.id %>")
+
+var up = $("#upvote-button-<%= @word.id %>")
+var down = $("#downvote-button-<%= @word.id %>")
+
+word_upvote_count.html("<%= @upvotes_count %>")
+word_downvote_count.html("<%= @downvotes_count %>")
+
+if(down.hasClass("downvoted")){
+  console.log("yes")
+} else {
+  console.log("no")
+}
+
+down.addClass("downvoted")
+
+console.log(down)

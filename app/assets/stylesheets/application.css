@@ -140,6 +140,10 @@ nav li a:hover {
   color: transparent; /* hides the submit value */
 }
 
+.upvoted {
+  background-image: url("upvoted.png");
+}
+
 .downvote-button {
   height: 50px;
   width: 50px;
@@ -148,6 +152,10 @@ nav li a:hover {
   background-size: contain;
   background-color: transparent;
   color: transparent; /* hides the submit value */
+}
+
+.downvoted {
+  background-image: url("downvoted.png");
 }
 
 .voting {
