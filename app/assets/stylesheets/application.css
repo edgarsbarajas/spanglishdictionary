@@ -143,6 +143,10 @@ nav li a:hover {
   padding-bottom: 10px;
 }
 
+.reply-button {
+  margin-left: 2px;
+}
+
 .comment {
   margin-bottom: 7px;
 }
@@ -152,6 +156,7 @@ a {
   font-weight: bolder;
   color: black;
 }
+
 
 /**********************************
 

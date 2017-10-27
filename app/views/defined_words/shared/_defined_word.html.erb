@@ -40,8 +40,12 @@
 
 
   <div class="reply-options">
-    <span><%= link_to "View all #{word.comments.count} comments", defined_word_comments_path(word), remote: true, id: "view-comments-#{word.id}" %></span>
+    <span class="view-comments-button">
+      <%= link_to "View all #{word.comments.count} comments", defined_word_comments_path(word), remote: true, id: "view-comments-#{word.id}" %>
+      </span>
+    <span class="reply-button">
     <%= link_to "REPLY", new_defined_word_comment_path(word), remote: true %>
+    </span>
   </div>
   <div class="reply-box" id="reply-box-<%= word.id %>">
   </div>
