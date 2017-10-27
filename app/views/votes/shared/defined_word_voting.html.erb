@@ -1,0 +1,21 @@
+<div class="upvote-count" id="upvote-count-<%= word.id %>">
+  <%= word.votes.where(upvote: true).pluck(:value).reduce(:+) %>
+</div>
+  <%= form_for :votes, url: defined_word_votes_path(word.id), method: "post", remote: true do |f|%>
+    <% if word.votes.where(user: current_user, upvote: true).exists? %>
+      <%= f.submit class: "upvote-button upvoted", id: "upvote-button-#{word.id}", value: "upvote" %>
+    <% else %>
+      <%= f.submit class: "upvote-button", id: "upvote-button-#{word.id}", value: "upvote" %>
+    <% end %>
+  <% end %>
+  <%= form_for :votes, url: defined_word_votes_path(word.id), method: "post", remote: true do |f|%>
+    <% if word.votes.where(user: current_user, upvote: true).exists? %>
+      <%= f.submit  class: "downvote-button downvoted", id: "downvote-button-#{word.id}", value: "downvote" %>
+    <% else %>
+      <%= f.submit  class: "downvote-button", id: "downvote-button-#{word.id}", value: "downvote" %>
+    <% end %>
+  <% end %>
+  <div class="downvote-count" id="downvote-count-<%= word.id %>">
+    <%= word.votes.where(upvote: false).pluck(:value).reduce(:+) %>
+  </div>
+</div>

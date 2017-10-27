@@ -15,33 +15,47 @@ class VotesController < ApplicationController
         @word = DefinedWord.find(word_id)
         if params["commit"] == "upvote"
           # if upvote doesnt exist
-          if !Vote.where(user: current_user, voteable_type: "DefinedWord", voteable_id: word_id, upvote: true).exists?
+          if !@word.votes.where(user: current_user, upvote: true).exists?
             # create it
-            Vote.create(user: current_user, voteable_id: word_id, voteable_type: "DefinedWord", value: 1, upvote: true)
+            @word.votes.create(user: current_user, value: 1, upvote: true)
             # delete the downvote on the word from that user if it exists
-            if downvote = Vote.find_by(user: current_user, voteable_id: word_id, voteable_type: "DefinedWord", upvote: false)
+            if downvote = @word.votes.find_by(user: current_user, upvote: false)
               downvote.delete
             end
+
+            @downvotes_count = @word.votes.where(upvote: false).pluck(:value).reduce(:+)
+            @upvotes_count = @word.votes.where(upvote: true).pluck(:value).reduce(:+)
+
+          respond_to do |f|
+            f.html { redirect_back(fallback_location: root_path) }
+            f.js { render "./votes/create_upvote"}
           end
+          end
+
+
         elsif params["commit"] == "downvote"
           # if downvote doesnt exist
-          if !Vote.where(user: current_user, voteable_type: "DefinedWord", voteable_id: params["defined_word_id"], upvote: false).exists?
+          if !@word.votes.where(user: current_user, upvote: false).exists?
             # create it
-            Vote.create(user: current_user, voteable_id: params["defined_word_id"], voteable_type: "DefinedWord", value: 1, upvote: false)
+            @word.votes.create(user: current_user, value: 1, upvote: false)
             # delete the downvote on the word from that user if it exists
-            if upvote = Vote.find_by(user: current_user, voteable_id: params["defined_word_id"], voteable_type: "DefinedWord", upvote: true)
+            if upvote = @word.votes.find_by(user: current_user, upvote: true)
               upvote.delete
             end
+
+            @downvotes_count = @word.votes.where(upvote: false).pluck(:value).reduce(:+)
+            @upvotes_count = @word.votes.where(upvote: true).pluck(:value).reduce(:+)
+
+            respond_to do |f|
+              f.html { redirect_back(fallback_location: root_path) }
+              f.js { render "./votes/create_downvote"}
+            end
           end
+
         end
-        @downvotes_count = @word.votes.where(upvote: false).pluck(:value).reduce(:+)
-        @upvotes_count = @word.votes.where(upvote: true).pluck(:value).reduce(:+)
+
       elsif params["comment_id"]
         # voting on comments for the future
-      end
-      respond_to do |f|
-        f.html { redirect_back(fallback_location: root_path) }
-        f.js { }
       end
     end
   end # end of def create
