@@ -7,9 +7,5 @@ var down = $("#downvote-button-<%= @word.id %>")
 word_upvote_count.html("<%= @upvotes_count %>")
 word_downvote_count.html("<%= @downvotes_count %>")
 
-console.log(up)
-
-if(!up.hasClass("upvoted")){
-  up.addClass("upvoted")
-}
-
+up.addClass("upvoted");
+down.removeClass("downvoted");
