@@ -147,6 +147,10 @@ nav li a:hover {
   margin-bottom: 7px;
 }
 
+a {
+    text-decoration: none;
+}
+
 /**********************************
 
             WORD VOTING
