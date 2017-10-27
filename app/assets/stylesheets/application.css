@@ -148,7 +148,9 @@ nav li a:hover {
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
+  font-weight: bolder;
+  color: black;
 }
 
 /**********************************
