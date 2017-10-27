@@ -25,7 +25,8 @@ html {
   font-family: 'Oswald', sans-serif;
   position: relative;
   top: 50%;
-  transform: translateY(25%)
+  transform: translateY(25%);
+  letter-spacing: 0.5px;
 }
 
 html, body {
