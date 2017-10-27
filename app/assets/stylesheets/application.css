@@ -16,12 +16,13 @@
 
 html {
   background-color: #EAEAEA;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .logo h1 {
   margin-top: 0px;
   color: white;
-  font-family: 'Julius Sans One', sans-serif;
+  font-family: 'Oswald', sans-serif;
   position: relative;
   top: 50%;
   transform: translateY(25%)
@@ -114,6 +115,7 @@ nav li a:hover {
   padding: 6px;
   color: white;
   width: 100%;
+  font-family: Times New Roman;
 }
 
 .index-list, .list-item, .origins-list{
