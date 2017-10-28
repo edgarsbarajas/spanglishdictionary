@@ -64,6 +64,11 @@ input, select {
     border-bottom: 2px solid #FECD4C;
 }
 
+select {
+  width: 15%;
+  height: 30px;
+}
+
 /**********************************
 
               NAV
@@ -263,6 +268,10 @@ button {
 
   input {
     width: 90%;
+  }
+
+  select {
+    width: 60%;
   }
 
    .origins-list, main{
