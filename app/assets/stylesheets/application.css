@@ -45,10 +45,11 @@ html, body {
 .form-entirety {
   text-align: center;
   list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  /*background-color: #E9B6F1;*/
+}
+
+.form-entirety h1 {
+  margin-top: 15px;
+  padding-top: 12px;
 }
 
 .field {
@@ -60,7 +61,7 @@ input, select {
     margin: 8px 0;
     box-sizing: border-box;
     border: none;
-    border-bottom: 2px solid purple
+    border-bottom: 2px solid #FECD4C;
 }
 
 /**********************************
