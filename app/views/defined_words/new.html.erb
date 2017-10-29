@@ -13,6 +13,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :example %><br />
+    <%= f.text_field :example %>
+  </div>
+
+  <div class="field">
     <%= f.label :origin %><br />
     <%= f.collection_select :origin_id, Origin.all, :id, :country %>
   </div>

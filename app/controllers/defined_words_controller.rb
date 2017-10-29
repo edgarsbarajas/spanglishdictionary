@@ -31,6 +31,6 @@ class DefinedWordsController < ApplicationController
 
   private
   def word_params
-    params.require(:defined_word).permit(:word, :definition, :origin_id, :user_id)
+    params.require(:defined_word).permit(:word, :definition, :example, :origin_id, :user_id)
   end
 end
