@@ -12,10 +12,13 @@
 
 ActiveRecord::Schema.define(version: 20171016025937) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comments", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.string "commentable_type", null: false
-    t.integer "commentable_id", null: false
+    t.bigint "commentable_id", null: false
     t.string "text", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -26,8 +29,8 @@ ActiveRecord::Schema.define(version: 20171016025937) do
   create_table "defined_words", force: :cascade do |t|
     t.string "word", null: false
     t.string "definition", null: false
-    t.integer "user_id", null: false
-    t.integer "origin_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "origin_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "example"
@@ -64,9 +67,9 @@ ActiveRecord::Schema.define(version: 20171016025937) do
   end
 
   create_table "votes", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.string "voteable_type", null: false
-    t.integer "voteable_id", null: false
+    t.bigint "voteable_id", null: false
     t.integer "value", null: false
     t.boolean "upvote", null: false
     t.datetime "created_at", null: false
