@@ -22,7 +22,7 @@ class DefinedWordsController < ApplicationController
     @word = DefinedWord.new(word_params)
 
     if @word.save
-      redirect_to new_defined_word_path
+      redirect_to root_path
     else
       @errors = @word.errors.full_messages
       render :new
