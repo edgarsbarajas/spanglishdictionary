@@ -18,18 +18,7 @@ Origin.destroy_all
 end
 
 10.times do
-  DefinedWord.create(word: Faker::Hipster.word, definition: Faker::Hacker.say_something_smart, user: User.all.sample, origin: Origin.all.sample, example: Faker::RickAndMorty.quote)
-end
-
-
-countries = ['Argentina', 'Bolivia', 'Chile', 'Colombia', 'Costa Rica',
-             'Cuba', 'Dominican Republic', 'Ecuador', 'El Salvador',
-              'Equatorial Guinea', 'Guatemala', 'Honduras', 'Mexico',
-              'Nicaragua', 'Panama', 'Paraguay', 'Peru', 'Spain', 'Uruguay',
-              'Venezuela']
-
-countries.each do |country|
-  Origin.create(country: country)
+  DefinedWord.create(word: Faker::Hipster.word, definition: Faker::Hacker.say_something_smart, user: User.all.sample, example: Faker::RickAndMorty.quote)
 end
 
 
