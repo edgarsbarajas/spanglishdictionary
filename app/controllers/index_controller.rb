@@ -1,5 +1,5 @@
 class IndexController < ApplicationController
   def index
-    @words = DefinedWord.all.limit(5)
+    @words = DefinedWord.all.reverse
   end
 end
