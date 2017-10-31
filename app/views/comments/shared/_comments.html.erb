@@ -15,7 +15,7 @@
       <ul id="comment-<%= comment.id %>-replies">
         <% comment.comments.each do |reply| %>
           <li class="comment">
-            <div class="comment-author"><%= link_to comment.user.username, user_defined_words_path(comment.user) %>
+            <div class="comment-author"><%= link_to reply.user.username, user_defined_words_path(comment.user) %>
               </div>
             <%= reply.text %>
           </li>
