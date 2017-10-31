@@ -17,11 +17,6 @@
     <%= f.text_field :example %>
   </div>
 
-  <div class="field">
-    <%= f.label :origin %><br />
-    <%= f.collection_select :origin_id, Origin.all, :id, :country %>
-  </div>
-
   <%= f.hidden_field :user_id, value: current_user.id %>
 
   <div class="actions">
