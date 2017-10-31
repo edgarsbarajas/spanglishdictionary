@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171016025937) do
+ActiveRecord::Schema.define(version: 20171031190921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,18 +30,10 @@ ActiveRecord::Schema.define(version: 20171016025937) do
     t.string "word", null: false
     t.string "definition", null: false
     t.bigint "user_id", null: false
-    t.bigint "origin_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "example"
-    t.index ["origin_id"], name: "index_defined_words_on_origin_id"
     t.index ["user_id"], name: "index_defined_words_on_user_id"
-  end
-
-  create_table "origins", force: :cascade do |t|
-    t.string "country", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
