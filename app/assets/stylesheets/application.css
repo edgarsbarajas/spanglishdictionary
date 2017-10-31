@@ -173,7 +173,7 @@ a {
 .upvote-button {
   height: 50px;
   width: 50px;
-  background-image: url("upvote.png");
+  background-image: url("voting/upvote.png");
   border: none;
   background-size: contain;
   background-color: transparent;
@@ -181,13 +181,13 @@ a {
 }
 
 .upvoted {
-  background-image: url("upvoted.png");
+  background-image: url("voting/upvoted.png");
 }
 
 .downvote-button {
   height: 50px;
   width: 50px;
-  background-image: url("downvote.png");
+  background-image: url("voting/downvote.png");
   border: none;
   background-size: contain;
   background-color: transparent;
@@ -195,7 +195,7 @@ a {
 }
 
 .downvoted {
-  background-image: url("downvoted.png");
+  background-image: url("voting/downvoted.png");
 }
 
 .voting {
