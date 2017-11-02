@@ -8,7 +8,7 @@ class DefinedWord < ApplicationRecord
   before_save :downcase_fields
 
   def downcase_fields
-    self.word.downcase
+    self.word.downcase!
   end
 
   def has_comment?(comment)
