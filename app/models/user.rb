@@ -10,4 +10,10 @@ class User < ApplicationRecord
   has_many :defined_words
   has_many :comments
   has_many :votes
+
+  before_save :downcase_fields
+
+  def downcase_fields
+    self.name.downcase
+  end
 end
